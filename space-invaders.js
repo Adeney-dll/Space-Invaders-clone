@@ -18,8 +18,7 @@ let ship = {
     x : shipX,
     y : shipY,
     width : shipWidth,
-    height : shipHeight
-}
+    height : shipHeight}
 
 let shipImg;
 let shipVelocityX = tileSize; //ship moving speed
@@ -58,8 +57,7 @@ window.onload = function() {
     shipImg = new Image();
     shipImg.src = "./ship.png";
     shipImg.onload = function() {
-        context.drawImage(shipImg, ship.x, ship.y, ship.width, ship.height);
-    }
+        context.drawImage(shipImg, ship.x, ship.y, ship.width, ship.height);}
 
     alienImg = new Image();
     alienImg.src = "./alien.png";
@@ -67,15 +65,13 @@ window.onload = function() {
 
     requestAnimationFrame(update);
     document.addEventListener("keydown", moveShip);
-    document.addEventListener("keyup", shoot);
-}
+    document.addEventListener("keyup", shoot);}
 
 function update() {
     requestAnimationFrame(update);
 
     if (gameOver) {
-        return;
-    }
+        return; }
 
     context.clearRect(0, 0, board.width, board.height);
 
@@ -96,15 +92,12 @@ function update() {
                 //move all aliens up by one row
                 for (let j = 0; j < alienArray.length; j++) {
                     alienArray[j].y += alienHeight;
-                }
-            }
+                }}
             context.drawImage(alienImg, alien.x, alien.y, alien.width, alien.height);
 
             if (alien.y >= ship.y) {
                 gameOver = true;
-            }
-        }
-    }
+            }}}
 
     //bullets
     for (let i = 0; i < bulletArray.length; i++) {
